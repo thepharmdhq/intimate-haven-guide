@@ -67,7 +67,7 @@ const Dashboard = () => {
                 Your sanctuary for growth and self-discovery
               </p>
             </div>
-            <Button variant="soft" size="sm">
+            <Button variant="soft" size="sm" onClick={() => navigate("/settings")}>
               Settings
             </Button>
           </div>

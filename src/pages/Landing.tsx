@@ -2,9 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Heart, Shield, Sparkles, Users } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-confidants.jpg";
 
 const Landing = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
@@ -28,10 +31,10 @@ const Landing = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="hero" size="lg" onClick={() => window.location.href = "/onboarding"}>
+                <Button variant="hero" size="lg" onClick={() => navigate("/onboarding")}>
                   Start Your Journey
                 </Button>
-                <Button variant="soft" size="lg">
+                <Button variant="soft" size="lg" onClick={() => navigate("/about")}>
                   Learn More
                 </Button>
               </div>
