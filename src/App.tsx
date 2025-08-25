@@ -7,6 +7,9 @@ import Landing from "./pages/Landing";
 import Onboarding from "./pages/Onboarding";
 import Dashboard from "./pages/Dashboard";
 import ReflectionCoach from "./pages/ReflectionCoach";
+import RelationshipTracker from "./pages/RelationshipTracker";
+import BlindSpotMirror from "./pages/BlindSpotMirror";
+import ExpressionScripts from "./pages/ExpressionScripts";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +25,9 @@ const App = () => (
           <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/reflection" element={<ReflectionCoach />} />
+          <Route path="/tracker" element={<RelationshipTracker />} />
+          <Route path="/patterns" element={<BlindSpotMirror />} />
+          <Route path="/scripts" element={<ExpressionScripts />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
