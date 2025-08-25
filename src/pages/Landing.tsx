@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Heart, Shield, Sparkles, Users } from "lucide-react";
-import heroImage from "@/assets/hero-women.jpg";
+import heroImage from "@/assets/hero-confidants.jpg";
 
 const Landing = () => {
   return (
@@ -56,7 +56,7 @@ const Landing = () => {
               <div className="absolute inset-0 bg-gradient-to-tr from-primary-glow/20 to-transparent rounded-3xl"></div>
               <img 
                 src={heroImage} 
-                alt="Diverse women supporting each other in an intimate, caring conversation"
+                alt="Four diverse confidants - three women and one man - in a supportive, intimate conversation"
                 className="w-full h-96 lg:h-[500px] object-cover rounded-3xl shadow-warm"
               />
             </div>
