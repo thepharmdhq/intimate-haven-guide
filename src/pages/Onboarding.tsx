@@ -184,7 +184,7 @@ const Onboarding = () => {
               
               <p className="text-muted-foreground leading-relaxed">
                 You are worthy of love, growth, and all the beautiful connections your heart desires. 
-                This sisterhood is here to support you every step of the way.
+                This companion is here to support you every step of the way.
               </p>
             </div>
           </div>
