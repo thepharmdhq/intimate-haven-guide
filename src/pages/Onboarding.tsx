@@ -101,7 +101,7 @@ const Onboarding = () => {
           Hello {name}! 🌸
         </CardTitle>
         <p className="text-muted-foreground">
-          What brings you to our sisterhood today? Choose what resonates most with your heart right now.
+          What brings you to our companion today? Choose what resonates most with your heart right now.
         </p>
       </CardHeader>
       
