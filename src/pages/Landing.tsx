@@ -14,7 +14,7 @@ const Landing = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <Badge className="bg-warmth text-accent-foreground w-fit">
-                Your trusted sisterhood awaits ✨
+                Your trusted confidant awaits ✨
               </Badge>
               
               <div className="space-y-6">
@@ -23,7 +23,7 @@ const Landing = () => {
                 </h1>
                 <p className="text-xl text-primary-foreground/90 leading-relaxed">
                   Your culturally safe space for intimacy, relationships, and personal growth. 
-                  Join a trusted sisterhood where your journey matters.
+                  Join a trusted confidant where your journey matters.
                 </p>
               </div>
 
@@ -72,7 +72,7 @@ const Landing = () => {
               Invest in Your Growth
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Join our exclusive sisterhood with pricing that honors your journey
+              Join our exclusive confidant with pricing that honors your journey
             </p>
           </div>
 
@@ -82,7 +82,7 @@ const Landing = () => {
               <CardContent className="p-8 space-y-6">
                 <div className="space-y-2">
                   <h3 className="text-2xl font-bold text-foreground">Monthly</h3>
-                  <p className="text-muted-foreground">Perfect for trying our sisterhood</p>
+                  <p className="text-muted-foreground">Perfect for trying our confidant</p>
                 </div>
                 
                 <div className="space-y-2">
@@ -166,7 +166,7 @@ const Landing = () => {
               🔒 Your privacy and growth are our priority. Cancel anytime.
             </p>
             <p className="text-sm text-muted-foreground">
-              Joining means entering a trusted sisterhood of women supporting women.
+              Joining means connecting with a trusted relationship companion who has your back.
             </p>
           </div>
         </div>
