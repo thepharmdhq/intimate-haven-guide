@@ -180,7 +180,7 @@ const Landing = () => {
               Your Best Friend Toolkit
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Culturally aware support designed by women, for women
+              Support designed with women in mind, guided by cultural understanding, for anyone looking for connection and clarity.
             </p>
           </div>
 
