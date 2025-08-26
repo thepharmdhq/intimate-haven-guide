@@ -326,6 +326,18 @@ const Onboarding = () => {
             {isLoading ? "Creating Your Account..." : "Create Sacred Space ✨"}
           </Button>
           
+          <div className="text-center">
+            <p className="text-sm text-muted-foreground">
+              Already have an account?{" "}
+              <button 
+                onClick={() => navigate("/login")}
+                className="text-primary hover:underline transition-colors"
+              >
+                Sign in here
+              </button>
+            </p>
+          </div>
+          
           <Button 
             variant="ghost" 
             onClick={() => setStep(1)}

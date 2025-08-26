@@ -39,6 +39,18 @@ const Landing = () => {
                 </Button>
               </div>
 
+              <div className="text-center">
+                <p className="text-sm text-primary-foreground/70">
+                  Already have an account?{" "}
+                  <button 
+                    onClick={() => navigate("/login")}
+                    className="text-primary-foreground underline underline-offset-4 hover:no-underline transition-all"
+                  >
+                    Sign In
+                  </button>
+                </p>
+              </div>
+
               <div className="flex items-center gap-6 text-primary-foreground/80">
                 <div className="flex items-center gap-2">
                   <Shield className="w-5 h-5" />
