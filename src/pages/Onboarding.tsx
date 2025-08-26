@@ -5,13 +5,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Badge } from "@/components/ui/badge";
-import { Heart, Sparkles, Leaf, Search } from "lucide-react";
+import { Heart, Sparkles, Leaf, Search, Shield, Users, Crown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Onboarding = () => {
   const [step, setStep] = useState(1);
   const [name, setName] = useState("");
   const [goal, setGoal] = useState("");
+  const [selectedPlan, setSelectedPlan] = useState("");
   const navigate = useNavigate();
 
   const goals = [
@@ -44,6 +45,17 @@ const Onboarding = () => {
       gradient: "gradient-trust"
     }
   ];
+
+  const handleStartPaidTrial = () => {
+    // Here we would integrate with Stripe for payment processing
+    console.log(`Starting ${selectedPlan} plan for ${name} with goal: ${goal}`);
+    navigate("/dashboard?plan=" + selectedPlan);
+  };
+
+  const handleSkipPaywall = () => {
+    // Navigate to limited dashboard experience
+    navigate("/dashboard?trial=free");
+  };
 
   const handleComplete = () => {
     // Here we would save the onboarding data
@@ -140,15 +152,15 @@ const Onboarding = () => {
         </RadioGroup>
         
         <div className="text-center space-y-4">
-          <Button 
-            variant="hero" 
-            size="lg" 
-            onClick={() => setStep(3)}
-            disabled={!goal}
-            className="w-full"
-          >
-            This Feels Right ✨
-          </Button>
+            <Button 
+              variant="hero" 
+              size="lg" 
+              onClick={() => setStep(3)}
+              disabled={!goal}
+              className="w-full"
+            >
+              This Feels Right ✨
+            </Button>
           
           <Button 
             variant="ghost" 
@@ -205,10 +217,10 @@ const Onboarding = () => {
             <Button 
               variant="hero" 
               size="lg" 
-              onClick={handleComplete}
+              onClick={() => setStep(4)}
               className="w-full"
             >
-              Enter Your Sanctuary ✨
+              Continue Your Journey ✨
             </Button>
             
             <p className="text-sm text-muted-foreground">
@@ -220,12 +232,163 @@ const Onboarding = () => {
     );
   };
 
+  const renderStep4 = () => (
+    <Card className="max-w-4xl mx-auto shadow-warm">
+      <CardHeader className="text-center space-y-6">
+        <div className="mx-auto w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center">
+          <Crown className="w-10 h-10 text-primary-foreground" />
+        </div>
+        
+        <div className="space-y-4">
+          <CardTitle className="text-3xl font-bold text-foreground">
+            Choose Your Growth Path, {name} 💕
+          </CardTitle>
+          
+          <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+            Your journey toward deeper intimacy and connection deserves the best support. 
+            Choose the plan that feels right for your heart's desires.
+          </p>
+        </div>
+      </CardHeader>
+      
+      <CardContent className="space-y-8">
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Monthly Plan */}
+          <Card className={`border-2 cursor-pointer transition-all duration-300 hover:shadow-soft ${
+            selectedPlan === "monthly" 
+              ? 'border-primary shadow-soft bg-primary/5' 
+              : 'border-border hover:border-primary/50'
+          }`} onClick={() => setSelectedPlan("monthly")}>
+            <CardContent className="p-6 space-y-4">
+              <div className="space-y-2">
+                <h3 className="text-xl font-bold text-foreground">Monthly Companion</h3>
+                <p className="text-muted-foreground text-sm">Perfect for exploring our sacred space</p>
+              </div>
+              
+              <div className="space-y-1">
+                <div className="text-3xl font-bold text-primary">$9.99</div>
+                <div className="text-muted-foreground text-sm">per month</div>
+              </div>
+
+              <div className="space-y-2 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-primary" />
+                  <span>Full Reflection Coach access</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Users className="w-4 h-4 text-primary" />
+                  <span>Relationship tracking tools</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Heart className="w-4 h-4 text-primary" />
+                  <span>Blind spot awareness</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Shield className="w-4 h-4 text-primary" />
+                  <span>Expression script library</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Annual Plan */}
+          <Card className={`border-2 cursor-pointer transition-all duration-300 relative overflow-hidden ${
+            selectedPlan === "annual" 
+              ? 'border-primary shadow-glow bg-primary/5' 
+              : 'border-primary/30 hover:border-primary shadow-soft'
+          }`} onClick={() => setSelectedPlan("annual")}>
+            <div className="absolute top-4 right-4">
+              <Badge className="bg-gradient-primary text-primary-foreground text-xs">
+                Best Value + Free Trial
+              </Badge>
+            </div>
+            
+            <CardContent className="p-6 space-y-4">
+              <div className="space-y-2">
+                <h3 className="text-xl font-bold text-foreground">Annual Journey</h3>
+                <p className="text-muted-foreground text-sm">Your year of transformation awaits</p>
+              </div>
+              
+              <div className="space-y-1">
+                <div className="text-3xl font-bold text-primary">$99.99</div>
+                <div className="text-muted-foreground text-sm">per year</div>
+                <div className="text-xs text-trust font-medium">Save $20 + 1 week free trial</div>
+              </div>
+
+              <div className="space-y-2 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-primary" />
+                  <span>Everything in Monthly</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Crown className="w-4 h-4 text-primary" />
+                  <span>1 week completely free</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Heart className="w-4 h-4 text-primary" />
+                  <span>Priority feature updates</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Shield className="w-4 h-4 text-primary" />
+                  <span>Extended reflection history</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+        
+        <div className="bg-card p-6 rounded-2xl border border-border space-y-3">
+          <div className="flex items-center gap-2 justify-center">
+            <Shield className="w-5 h-5 text-trust" />
+            <p className="text-sm font-medium text-foreground">
+              Protected by our Sacred Space Promise
+            </p>
+          </div>
+          <p className="text-xs text-muted-foreground text-center">
+            Your privacy is sacred. Cancel anytime. Your growth is guaranteed or your money back.
+          </p>
+        </div>
+        
+        <div className="text-center space-y-4">
+          <Button 
+            variant="hero" 
+            size="lg" 
+            onClick={handleStartPaidTrial}
+            disabled={!selectedPlan}
+            className="w-full max-w-md"
+          >
+            {selectedPlan === "annual" ? "Start Free Trial" : "Begin Monthly Journey"} ✨
+          </Button>
+          
+          <div className="space-y-2">
+            <Button 
+              variant="ghost" 
+              onClick={handleSkipPaywall}
+              className="text-muted-foreground text-sm"
+            >
+              Continue with limited access for now
+            </Button>
+            
+            <Button 
+              variant="ghost" 
+              onClick={() => setStep(3)}
+              className="text-muted-foreground text-xs block mx-auto"
+            >
+              Back
+            </Button>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+
   return (
     <div className="min-h-screen bg-gradient-hero flex items-center justify-center p-6">
       <div className="w-full">
         {step === 1 && renderStep1()}
         {step === 2 && renderStep2()}
         {step === 3 && renderStep3()}
+        {step === 4 && renderStep4()}
       </div>
     </div>
   );
