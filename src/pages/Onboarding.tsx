@@ -360,23 +360,13 @@ const Onboarding = () => {
             {selectedPlan === "annual" ? "Start Free Trial" : "Begin Monthly Journey"} ✨
           </Button>
           
-          <div className="space-y-2">
-            <Button 
-              variant="ghost" 
-              onClick={handleSkipPaywall}
-              className="text-muted-foreground text-sm"
-            >
-              Continue with limited access for now
-            </Button>
-            
-            <Button 
-              variant="ghost" 
-              onClick={() => setStep(3)}
-              className="text-muted-foreground text-xs block mx-auto"
-            >
-              Back
-            </Button>
-          </div>
+          <Button 
+            variant="ghost" 
+            onClick={() => setStep(3)}
+            className="text-muted-foreground text-xs block mx-auto"
+          >
+            Back
+          </Button>
         </div>
       </CardContent>
     </Card>
